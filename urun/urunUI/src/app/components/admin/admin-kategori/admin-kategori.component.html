@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Kategoriler</h2>
+  <button mat-fab matTooltip="Kategori Ekle" color="primary" style="background-color: #1e9836;" (click)="Ekle()">
+    <mat-icon aria-label="label"   style="background-color: #1e9836;">add</mat-icon>
+  </button>
+  <p>&nbsp;</p>
+
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="background-color: #1e9836;">
+    <ng-container matColumnDef="KategoriAdi" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header style="color: white; font-size:18px;"> Kategori Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit" style="color: white;"> {{kayit.KategoriAdi}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="KatUrunSay" matSort>
+      <mat-header-cell *matHeaderCellDef mat-sort-header style="color: white; font-size:18px;"> Ürün Sayısı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit" style="color: white;"> {{kayit.KatUrunSay}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="detay">
+      <mat-header-cell *matHeaderCellDef style="color: white; font-size:18px;"> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+
+        <button mat-icon-button color="accent" matTooltip="Ürün Listele">
+          <mat-icon aria-label="label" style="color: white;">list</mat-icon>
+        </button>
+
+        <button mat-icon-button color="primary" matTooltip="Kategori Düzenle" (click)="Duzenle(kayit)">
+          <mat-icon aria-label="label">edit</mat-icon>
+        </button>
+        
+        <button mat-icon-button color="warn" matTooltip="Kategori Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator   [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons>
+  </mat-paginator>
+</div>

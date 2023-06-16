@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>{{uye?.KullaniciAdi}} Adlı Üyeye Ait Ürünler</h1>
+  <h3 style="color: tomato;" *ngIf="urunler?.length==0">Henüz bu üyeye ait ürün girilmemiştir!</h3>
+  <div *ngFor="let Urun of urunler">
+        <h3>{{Urun.Baslik}}</h3>
+        <p>
+            <b>Kategori: </b>{{Urun.KategoriAdi}} &nbsp;
+            <b>Tarih: </b>{{Urun.Tarih}} &nbsp;
+            <b>Yazan: </b>{{Urun.UyeKadi}} &nbsp;
+            <b>Görüntülenme: </b>{{Urun.Goruntulenme}} &nbsp;
+            <a href="#" [routerLink]="['/urun',Urun.UrunId]">Ürün incele</a>
+        </p>
+        <hr>
+    </div>
+    </div>

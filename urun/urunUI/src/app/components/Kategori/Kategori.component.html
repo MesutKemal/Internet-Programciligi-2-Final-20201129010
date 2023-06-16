@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>{{kat?.KategoriAdi}} Kategorisindeki Ürünler</h1>
+  <h3 style="color: tomato;" *ngIf="urunler?.length==0">Henüz bu kategoriye ait ürün girilmemiştir!</h3>
+  <div *ngFor="let Urun of urunler">
+        <h3>{{Urun.Baslik}}</h3>
+        <p>
+            <b>Kategori: </b>{{Urun.KategoriAdi}} &nbsp;
+            <b>Tarih: </b>{{Urun.Tarih}} &nbsp;
+            <b>Yazan: </b> <a href="#" [routerLink]="['/uyeurun',Urun.UyeId]">{{Urun.UyeKadi}}</a> &nbsp;
+            <b>Görüntülenme: </b>{{Urun.Goruntulenme}} &nbsp;
+            <a href="#" [routerLink]="['/urun',Urun.UrunId]">Ürünü incele</a>
+        </p>
+        <hr>
+    </div>
+    </div>
